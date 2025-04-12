@@ -1,0 +1,93 @@
+.meetVideoContainer{
+    position: relative;
+    height: 100vh;
+    background-color: rgb(1, 4, 48);
+}
+
+.meetVideoContainer > .meetUserVideo{
+    position: absolute;
+    bottom: 10vh;
+    height: 25vh;
+    width: auto;
+    left: 20px;
+    border-radius: 1.5rem;
+}
+  
+.buttonContainers{
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    text-align: center;
+}
+
+.buttonContainers svg{
+    font-size: 2.5rem;
+}
+
+.conferenceView {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    justify-content: center;
+    align-content: flex-start;
+    width: 100vw;
+    height: calc(90vh - 80px); /* Leave space for buttonContainers */
+    overflow-y: auto;
+}
+
+/* Video styling - occupy 45% width for 2 per row */
+.conferenceView video {
+    width: 45%;
+    height: calc((90vh - 100px) / 2 - 10px); /* 2 rows max with gap */
+    min-width: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Handle 1 video - Full width */
+.conferenceView:has(video:nth-child(1)) video {
+    width: 60%;
+    height: 60vh;
+}
+
+/* For 2 videos - 2 equal columns */
+.conferenceView:has(video:nth-child(2)) video {
+    width: 45%;
+    height: calc(45vh - 10px);
+}
+
+/* For 3-4 videos - 2x2 grid */
+.conferenceView:has(video:nth-child(3)),
+.conferenceView:has(video:nth-child(4)) video {
+    width: 45%;
+    height: calc((90vh - 100px) / 2 - 10px);
+}
+
+/* For more than 4 users - wrap with scroll */
+.conferenceView video:nth-child(n+5) {
+    width: 45%;
+    height: calc((90vh - 100px) / 2 - 10px);
+}
+
+
+.chatRoom {
+    position: absolute;
+    height: 90vh;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    bottom: 10vh;
+    width: 30vw;
+    padding-inline: 20px;
+}
+
+.chatContainer {
+    position: relative;
+    height: 100%;
+}
+
+.chattingArea {
+    position: absolute;
+    bottom: 0;
+}
