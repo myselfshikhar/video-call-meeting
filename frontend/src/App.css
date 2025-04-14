@@ -1,9 +1,10 @@
+
 .landingPageContainer {
   width: 100vw;
   height: 100vh;
   background: url("/public/background.png") no-repeat center center;
   background-size: cover;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .landingPageContainer nav {
@@ -27,6 +28,7 @@
 }
 
 .landingMainContainer {
+  background-color: rgb(0, 0, 0);
   display: flex;
   justify-content: space-between;
   padding: 3rem;
