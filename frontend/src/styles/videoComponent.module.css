@@ -1,29 +1,34 @@
-.meetVideoContainer{
+.meetVideoContainer {
     position: relative;
     height: 100vh;
     background-color: rgb(1, 4, 48);
 }
 
-.meetVideoContainer > .meetUserVideo{
+.meetVideoContainer > .meetUserVideo {
     position: absolute;
     bottom: 10vh;
     height: 25vh;
     width: auto;
     left: 20px;
     border-radius: 1.5rem;
+    max-width: 40vw;
 }
-  
-.buttonContainers{
+
+/* Center buttons and shrink icons on smaller screens */
+.buttonContainers {
     position: absolute;
     width: 100vw;
     bottom: 0;
     text-align: center;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
-.buttonContainers svg{
+.buttonContainers svg {
     font-size: 2.5rem;
 }
 
+/* Video Grid */
 .conferenceView {
     display: flex;
     flex-wrap: wrap;
@@ -32,45 +37,40 @@
     justify-content: center;
     align-content: flex-start;
     width: 100vw;
-    height: calc(90vh - 80px); /* Leave space for buttonContainers */
+    height: calc(90vh - 80px);
     overflow-y: auto;
 }
 
-/* Video styling - occupy 45% width for 2 per row */
 .conferenceView video {
     width: 45%;
-    height: calc((90vh - 100px) / 2 - 10px); /* 2 rows max with gap */
+    height: calc((90vh - 100px) / 2 - 10px);
     min-width: 300px;
     border-radius: 10px;
     object-fit: cover;
 }
 
-/* Handle 1 video - Full width */
 .conferenceView:has(video:nth-child(1)) video {
     width: 60%;
     height: 60vh;
 }
 
-/* For 2 videos - 2 equal columns */
 .conferenceView:has(video:nth-child(2)) video {
     width: 45%;
     height: calc(45vh - 10px);
 }
 
-/* For 3-4 videos - 2x2 grid */
 .conferenceView:has(video:nth-child(3)),
 .conferenceView:has(video:nth-child(4)) video {
     width: 45%;
     height: calc((90vh - 100px) / 2 - 10px);
 }
 
-/* For more than 4 users - wrap with scroll */
 .conferenceView video:nth-child(n+5) {
     width: 45%;
     height: calc((90vh - 100px) / 2 - 10px);
 }
 
-
+/* Chatroom styles */
 .chatRoom {
     position: absolute;
     height: 90vh;
@@ -80,6 +80,7 @@
     bottom: 10vh;
     width: 30vw;
     padding-inline: 20px;
+    overflow: hidden;
 }
 
 .chatContainer {
@@ -90,4 +91,34 @@
 .chattingArea {
     position: absolute;
     bottom: 0;
+    width: 100%;
+}
+
+/* ==================== */
+/* RESPONSIVE STYLES 📱 */
+/* ==================== */
+@media screen and (max-width: 768px) {
+    .meetUserVideo {
+        height: 20vh;
+        left: 10px;
+        max-width: 60vw;
+    }
+
+    .buttonContainers svg {
+        font-size: 2rem;
+    }
+
+    .conferenceView video {
+        width: 90% !important;
+        height: auto;
+        min-width: unset;
+    }
+
+    .chatRoom {
+        width: 90vw;
+        height: 50vh;
+        bottom: 0;
+        right: 5vw;
+        border-radius: 10px 10px 0 0;
+    }
 }
