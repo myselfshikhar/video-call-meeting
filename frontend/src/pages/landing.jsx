@@ -15,15 +15,16 @@ export default function LandingPage() {
                 <div className='navlist'>
                     <p onClick={() => {
                         router("/aljk23")
-                    }}>Join as Guest</p>
+                    }}style={{ color: "#D97500" }}>Join as Guest</p>
                     <p onClick={() => {
                         router("/auth")
 
-                    }}>Register</p>
+                    }}style={{ color: "#D97500" }}>Register</p>
                     <div onClick={() => {
                         router("/auth")
+                        
 
-                    }} role='button'>
+                    }} role='button' style={{ color: "#D97500" }}>
                         <p>Login</p>
                     </div>
                 </div>
@@ -32,7 +33,7 @@ export default function LandingPage() {
 
             <div className="landingMainContainer">
                 <div>
-                    <h1><span style={{ color: "#FF9839" }}>Connect</span> with your loved Ones</h1>
+                    <h1><span style={{ color: "white" }}>Connect</span> with your loved Ones</h1>
 
                     <p>Cover a distance by Shikhar's Video Call App</p>
                     <div role='button'>
